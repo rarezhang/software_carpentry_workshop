@@ -46,3 +46,26 @@ dimondsplot + geom_point(size =5)
 library(MASS)
 # x = factor(racy), y = bwt
 ggplot(birthwt,aes(factor(race),bwt)) + geom_boxplot()
+
+
+## facets
+# single column, multiple rows
+ggplot(iris,aes(Sepal.Length,Sepal.Width,color = Species)) +
+  geom_point() +
+  facet_grid(.~ Species) # or facet_wrap(~ Species)  ##wrap blocks
+
+## Scales
+# color bar
+"install.packages("RColorBrewer")"
+library("RColorBrewer")
+df <- melt(iris, id.vars = "Species")
+ggplot(df, aes(Species, value, fill = variable)) +
+  geom_bar(stat = "identity") +
+  scale_fill_brewer(palette = "Set1")
+
+df <- melt(iris, id.vars = "Species")
+ggplot(df, aes(Species, value, fill = variable)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_brewer(palette = "Set1")
+
+
