@@ -1,3 +1,3 @@
 # software_carpentry_workshop
-The iplant workshop /n
+The iplant workshop
 every one is gonna start using verssion control
